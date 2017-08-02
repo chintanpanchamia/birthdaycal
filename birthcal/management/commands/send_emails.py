@@ -11,22 +11,16 @@ from birthdaycal.settings import EMAIL_HOST_USER
 
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
-        def is_birthday(patient):
+        def is_today_birthday(patient):
             currentDate = datetime.date.today()
-            birthday = patient.birthday
+            birthday = patient.dob
             if (birthday.month == currentDate.month and
                     birthday.day == currentDate.day):
                 return True
 
             return False
 
-        def generate_email(doctor, patient):
-            subject = doctor.email_subject.format(doctor.last_name)
-            subject = subject.replace(
-                '[fn]', patient.first_name
-            ).replace(
-                '[ln]', patient.last_name
-            )
+        def email(doctor, patient):
 
             body = doctor.email_body.format(doctor.last_name)
             body = body.replace(
@@ -35,15 +29,15 @@ class Command(BaseCommand):
                 '[ln]', patient.last_name
             )
 
-            message = (subject, body, EMAIL_HOST_USER, [patient.email])
+            message = (doctor.email_subject, body, EMAIL_HOST_USER, [patient.email])
             return message
 
         def get_bday_emails(doctor):
             emails = []
             patients = doctor.patient_set.filter(send_email=True)
             for patient in patients:
-                if is_birthday(patient):
-                    message = (generate_email(doctor, patient))
+                if is_today_birthday(patient):
+                    message = (email(doctor, patient))
                     emails.append(message)
 
             return emails

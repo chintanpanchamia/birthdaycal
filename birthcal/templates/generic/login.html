@@ -2,9 +2,7 @@
 {% block content %}
 {% load staticfiles %}
 
-<div id="logo" class="clearfix">
-  <img id="drchrono-logo" src="{% static 'images/drchrono-lg.png' %}" alt="" />
-</div>
+
 
 <div id="login-button">
   <a href="https://drchrono.com/o/authorize/?redirect_uri={{redirect_url}}&response_type=code&client_id={{client_id}}&scope=patients:read%20user:read">

@@ -1,34 +1,112 @@
+/*drchrono green #41A528*/
+
 body {
   background-color: #f5f5f5;
   font-family: sans-serif;
 }
 
-#main {
-  margin: auto;
-  margin-top: 75px;
-  height: 85vh;
-  width: 85vw;
+
+
+
+
+/*NAVBAR CSS*/
+
+.navbar-default {
+    background-color: #FFF;
+    border: none;
+    height: 50px;
+    color: #41A528;
 }
 
-/*general css*/
-.bold {
-  font-weight: 600;
+.navbar-brand {
+padding-top:7px;
 }
 
-.clearfix {
-  overflow: auto;
+.navbar-default .navbar-nav {
+    color: #41A528;
+    font-weight: 200;
+    font-size: 1em;
+}
+.navbar-default .navbar-nav:hover, .navbar-default .navbar-nav:focus {
+    color: white;
+}
+
+.navbar-default .navbar-nav li a {
+    color: #41A528;
+    font-weight: 200;
+    margin: 0 0.25em;
+}
+
+.navbar-default .navbar-nav li a:hover, .navbar-default .navbar-nav li a:focus {
+    color: white;
+    background-color: #41A528;
+    box-shadow: none;
+}
+.navbar-default .navbar-nav .active a, .navbar-default .navbar-nav .active a:hover, .navbar-default .navbar-nav .active a:focus {
+    color: white;
+    background-color: black;
+    box-shadow: none;
+}
+
+.navbar-toggle{
+    border-radius: 0;
+}
+.navbar-collapse {
+    background: #FFF;
+    border: none;
+    box-shadow: none;
+}
+.navbar-default .navbar-toggle {
+    border-color: black;
+}
+.navbar-default .navbar-toggle:hover {
+    background-color: black;
+    /*border-color: white;*/
+}
+.navbar-default .navbar-toggle:focus {
+    background-color: black;
+}
+
+.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: white;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: black;
+}
+
+.navbar-default .navbar-toggle:hover .icon-bar {
+    background-color: white;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: black;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: white;
+        background-color: black;
+    }
+}
+
+/*END OF NAVBAR*/
+
+
+
+
+
+
+
+/*GENERIC CSS*/
+.container.main {
+   margin-top: 75px;
 }
 
 .display-none {
   display: none;
 }
 
-.center-text {
-  text-align: center;
-}
-
 .app-color {
-  color: #42931F;
+  color: #41A528;
 }
 
 button {
@@ -36,9 +114,7 @@ button {
   padding: 5px 15px;
   font-size: 15px;
   cursor: pointer;
-  border-radius: 5px;
   border-width: 0px;
-  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
   opacity: 0.8;
 }
 
@@ -115,8 +191,10 @@ button:hover {
 /*home page*/
 #username {
   font-size: 14px;
-  margin-left: 15px;
-  font-weight: 400;
+}
+
+#nameplate {
+  margin: 30px auto;
 }
 
 /*patients list*/
@@ -330,80 +408,11 @@ button:hover {
   transition: opacity 0.5s;
 }
 
-/*navbar*/
-#nav {
-  position: fixed;
-  width: 100%;
-  height: 40px;
-  background-color: #5CB85C;
-  top: 0;
-  left: 0;
-  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
-  z-index: 100;
-}
 
-#nav-left {
-  float: left;
-}
-
-#nav-right {
-  float: right;
-}
-
-.nav-link {
-  width: 200px;
-  text-align: center;
-  height: inherit;
-  background-color: #55B914;
-  opacity: 0.7;
-  display: inline-block;
-  vertical-align: bottom;
-}
-
-.nav-link:hover {
-  opacity: 1.0;
-}
-
-.nav-link-left {
-  border-right: 1px solid #C0C0C0;
-}
-
-.nav-link-right {
-  border-left: 1px solid #C0C0C0;
-}
-
-.nav-link>a {
-  display: block;
-  position: relative;
-  font-size: 15px;
-  text-decoration: none;
-  color: #fff;
-  height: 40px;
-  top: 0;
-}
-
-.nav-class-text {
-  padding-top: 10px;
-}
-
-#drchrono-nav-text {
-  position: relative;
-  bottom: 5px;
-}
 
 /*responsive*/
-@media (max-width: 920px) {
-  #nav-patients, #to-drchrono {
-    width: 125px;
-  }
+@media (max-width: 767px) {
 
-  #nav-email {
-    width: 165px;
-  }
-
-  #sign-out {
-    width: 100px;
-  }
 
   .email-input {
     width: 100%;

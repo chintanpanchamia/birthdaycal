@@ -4,53 +4,47 @@
     <meta charset="utf-8">
     <title>drchrono Birthday Reminder</title>
     <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" media="screen" title="no title" charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-    {% if request.user.is_authenticated %}
-      <div id="nav">
-          <div id="nav-left">
-            <div id="nav-patients" class="nav-link nav-link-left">
-              <a href="{% url 'birthcal:index_view' %}">
-                <div class="nav-class-text">
-                  <i class="fa fa-list fa-lg"></i> Patients List
-                </div>
-              </a>
-            </div><div id="nav-email" class="nav-link nav-link-left">
-              <a href="{% url 'birthcal:custom_email' %}">
-                <div class="nav-class-text">
-                  <i class="fa fa-envelope-o fa-lg"></i> Edit Email Message
-                </div>
-              </a>
+{% if request.user.is_authenticated %}
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" rel="home" href="https://drchrono.com/dashboard/" title="DrChrono"><img
+             src="{% static 'images/logo-dark.svg' %}"></a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-          </div>
-
-          <div id="nav-right">
-            <div id="to-drchrono" class="nav-link nav-link-right">
-              <a href="https://drchrono.com/dashboard/">
-                <div class="nav-class-text">
-                  <img src="{% static 'images/drchrono-icon.png' %}" alt="" />
-                  <span id="drchrono-nav-text">To drchrono</span>
-                </div>
-              </a>
-            </div><div id="sign-out" class="nav-link nav-link-right">
-              <a href="{% url 'birthcal:logout' %}">
-                <div class="nav-class-text">
-                  <i class="fa fa-sign-out fa-lg"></i> Log Out
-                </div>
-              </a>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'birthcal:index_view' %}">Patients</a></li>
+                    <li><a href="{% url 'birthcal:custom_email' %}">E-mail</a></li>
+                    <li><a href="{% url 'birthcal:logout' %}"><!--put logout/power symbol-->Logout</a></li>
+                </ul>
             </div>
-          </div>
-      </div>
-    {% endif %}
+        </div>
+    </nav>
 
-    <div id="main">
-      {% block content %}
-      {% endblock %}
-    </div>
+{% endif %}
 
-    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="{% static 'js/controller.js' %}"></script>
+<div class="container main">
+{% block content %}
+
+{% endblock %}
+</div>
+
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% static 'js/controller.js' %}"></script>
 </body>
