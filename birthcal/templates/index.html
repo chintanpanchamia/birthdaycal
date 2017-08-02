@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>
+  Welcome {{doctor.first_name}}
+  <div id="username">
+    You are logged in as <span class="bold app-color">{{username}}</span>
+  </div>
+</h1>
+<button id="email-all-button" type="button" name="button">
+  <i class="fa fa-paper-plane"></i> Add all patients to birthday email list
+</button>
+<button id="email-none-button" type="button" name="button">
+  <i class="fa fa-times"></i> Remove all patients from birthday email list
+</button>
+
+<div id="patient-table" class="bold">
+  <i class="fa fa-users"></i> PATIENTS
+
+  {% if not is_guest %}
+    <a href="https://drchrono.com/o/authorize/?redirect_uri={{redirect_url}}&response_type=code&client_id={{client_id}}&scope=patients:read%20user:read">
+      <button id="update-list-button" type="button" name="button">
+        Update Patient List from drchrono
+      </button>
+    </a>
+  {% endif %}
+
+</div>
+<input id="search-bar" type="text" name="search-query" value=""
+  placeholder="Search patients by name or email">
+
+<div id="patient-table-head" class="table-content bold">
+  <div class="patient-col col-last-name">Last Name</div>
+  <div class="patient-col col-first-name">First Name</div>
+  <div class="patient-col col-email">Email</div>
+  <div class="patient-col col-birthday">Birthday</div>
+  <div class="patient-col col-send-check">Send Email?</div>
+</div>
+<div id="patient-list" class="table-content">
+  {% include 'patients/patient_list.html' %}
+</div>
+<button id="save-changes-button" class="save-button"
+  type="button" name="button" disabled
+>
+  <i class="fa fa-check-square-o"></i> Save Changes
+</button>
+
+<div id="save-success" class="save-result bold">
+  Save successful
+</div>
+<div id="save-fail" class="save-result bold">
+  Save failed, please try again
+</div>
+
+<div id="save-guard" class="display-none center-screen">
+  <div id="loading-screen" class="display-none center-screen">
+    <i class="fa fa-spinner fa-pulse fa-3x loading-screen-content"></i>
+    <span class="loading-screen-content">
+      Updating patient list<br>
+      Please wait...
+    </span>
+  </div>
+</div>
+
+{% endblock %}

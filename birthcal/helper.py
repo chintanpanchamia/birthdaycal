@@ -14,7 +14,7 @@ def get_drchrono_user(request_params):
     Get user data from drchrono api and update user and patients rows in db
     """
     access_token = exchange_token(request_params)
-    current_doctor_data = get_doctor_data(access_token)
+    current_doctor_data = get_doctor(access_token)
     user = save_user(current_doctor_data)
     update_patients(user, access_token)
     return user
@@ -37,12 +37,12 @@ def exchange_token(params):
     return data['access_token']
 
 
-def get_doctor_data(access_token):
+def get_doctor(access_token):
     """
     Get doctor data for current drchrono user
     """
     header = {'Authorization': 'Bearer %s' % access_token}
-    user_data = get_user_data(header)
+    user_data = get_user(header)
 
     doctor_endpoint = 'doctors/{0}'.format(user_data['doctor'])
     data = get_drchrono_data(doctor_endpoint, header)
@@ -50,7 +50,7 @@ def get_doctor_data(access_token):
     return data
 
 
-def get_user_data(header):
+def get_user(header):
     """
     Get user data for current drchrono user
     """
@@ -96,7 +96,6 @@ def update_patients(user, access_token):
 
 def is_valid_patient(patient_data):
     """
-    Checks is a patient is valid.
     Patients are only valid if they have both an email and a birthday.
     """
     if patient_data['email'] and patient_data['date_of_birth']:

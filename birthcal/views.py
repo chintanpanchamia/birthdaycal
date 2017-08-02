@@ -8,18 +8,18 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 
 from birthdaycal.settings import CLIENT #client data
-from models import Doctor,Patient
+from models import Doctor, Patient
 from forms import EmailForm, PatientForm
 from helper import get_drchrono_user
-#utils
 
 # Create your views here.
 
+
 def login_view(request):
     return render(request, 'generic/login.html',
-                  context= {'redirect_url': urlquote(CLIENT['redirect_url']),
-                            'client_id': CLIENT['client_id']
-                            })
+                  context={'redirect_url': urlquote(CLIENT['redirect_url']),
+                            'client_id': CLIENT['client_id']})
+
 
 def oauth_view(request):
     """
@@ -38,13 +38,13 @@ def oauth_view(request):
     return redirect('drchrono_birthdays:index_view')
 
 
-def guest_view(request):
-    if 'error' in request.GET:
-        return redirect('drchrono_birthdays:login_error')
-
-    auth_user = authenticate(username="guest", password="guestpassword")
-    login(request, auth_user)
-    return redirect('drchrono_birthdays:index_view')
+# def guest_view(request):
+#     if 'error' in request.GET:
+#         return redirect('drchrono_birthdays:login_error')
+#
+#     auth_user = authenticate(username="guest", password="guestpassword")
+#     login(request, auth_user)
+#     return redirect('drchrono_birthdays:index_view')
 
 
 def login_error_view(request):
@@ -61,7 +61,7 @@ def logout_view(request):
 
 def index_view(request):
     """
-    Landing page after login
+    Landing page
     """
     doctor = request.user.doctor
     patients = doctor.patient_set.all()
@@ -104,7 +104,6 @@ def patient_search_view(request):
     })
 
 
-# My API
 class DoctorView(generic.DetailView):
     model = Doctor
 

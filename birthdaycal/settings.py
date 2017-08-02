@@ -70,6 +70,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'birthdaycal.wsgi.application'
 
+EMAIL_USE_TLS = True
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_HOST_USER = 'destructor.animos@gmail.com'
+
+EMAIL_HOST_PASSWORD = 'DrJDDrElliot365'
+
+EMAIL_PORT = 587
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
