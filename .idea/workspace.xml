@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9b3bf40-f606-461f-86a9-5fdafb2b1782" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/birthcal/static/js/controller.js" afterPath="$PROJECT_DIR$/birthcal/static/js/controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/birthcal/helper.py" afterPath="$PROJECT_DIR$/birthcal/helper.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/birthcal/templates/index.html" afterPath="$PROJECT_DIR$/birthcal/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/birthdaycal/settings.py" afterPath="$PROJECT_DIR$/birthdaycal/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/birthcal/static/css/style.css" afterPath="$PROJECT_DIR$/birthcal/static/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/birthcal/views.py" afterPath="$PROJECT_DIR$/birthcal/views.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/birthdaycal/auth_data.py" afterPath="" />
     </list>
     <ignored path="birthdaycal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,16 +88,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="260" column="17" selection-start-line="260" selection-start-column="17" selection-end-line="260" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auth_data.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/birthdaycal/auth_data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -804,14 +788,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="260" column="17" selection-start-line="260" selection-start-column="17" selection-end-line="260" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/birthdaycal/auth_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
           <folding />
         </state>
       </provider>
