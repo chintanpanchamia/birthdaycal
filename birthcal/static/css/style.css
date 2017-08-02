@@ -189,15 +189,36 @@ button:hover {
 }
 
 /*home page*/
-#username {
-  font-size: 14px;
-}
-
 #nameplate {
   margin: 30px auto;
+  font-size: 2em;
+}
+
+#username {
+  font-size: 0.5em;
 }
 
 /*patients list*/
+
+.patient-update a {
+  width: 15%;
+  color: #FFF;
+  background: #41A528;
+  text-align: center;
+
+}
+
+
+.patient-update > a:hover {
+  background: #000;
+  text-decoration: none;
+}
+
+.patient-update > a:focus, .patient-update > a:active {
+  background: #41A528;
+  text-decoration: none;
+}
+
 #search-bar {
   width: 300px;
   height: 20px;
@@ -237,7 +258,7 @@ button:hover {
 
 .table-content {
   background-color: #fff;
-  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  box-shadow: 0 0px 2px rgba(0,0,0,.2);
 }
 
 .patient {
@@ -279,14 +300,6 @@ button:hover {
 
 .changed {
   background-color: #ADD8E6;
-}
-
-#update-list-button {
-  float: right;
-  font-size: 13px;
-  margin-right: 1%;
-  padding: 1px 10px;
-  background-color: #364650;
 }
 
 /*edit email page*/
@@ -357,23 +370,9 @@ button:hover {
   opacity: 0.9;
 }
 
-#loading-screen {
-  text-align: center;
-  margin-top: 200px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 25px;
-  width: 45%;
-  background-color: #309549;
-  color: #fff;
-  padding: 20px 0px;
-  padding-right: 70px;
-  border-radius: 5px;
-}
 
-.loading-screen-content {
-  display: inline-block;
-}
+
+
 
 #save-success {
   background-color: #fcf8e3;

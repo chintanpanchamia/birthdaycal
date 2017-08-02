@@ -2,12 +2,10 @@
 {% block content %}
 
     <div id="nameplate">
-        <h1>
-            Welcome Dr. {{doctor.last_name}}
-            <div id="username">
-                You are logged in as <span class="app-color">{{username}}</span>
-            </div>
-        </h1>
+        Welcome Dr. {{doctor.last_name}}
+        <div id="username">
+            You are logged in as <span class="app-color">{{username}}</span>
+        </div>
     </div>
 
     <button id="email-all-button" type="button" name="button">
@@ -17,18 +15,17 @@
         <i class="fa fa-times"></i> Remove all patients
     </button>
 
-    <div id="patient-table" class="">
+    <div id="patient-table" >
         <i class="fa fa-users"></i> PATIENTS
-
-        {% if not is_guest %}
-        <a href="https://drchrono.com/o/authorize/?redirect_uri={{redirect_url}}&response_type=code&client_id={{client_id}}&scope=patients:read%20user:read">
-            <button id="update-list-button" type="button" name="button">
-                Update Patient List from drchrono
-            </button>
-        </a>
-        {% endif %}
-
     </div>
+
+    {% if not is_guest %}
+        <div class="patient-update">
+            <a id="update-list-button" href="https://drchrono.com/o/authorize/?redirect_uri={{redirect_url}}&response_type=code&client_id={{client_id}}&scope=patients:read%20user:read">
+                Update Patient List
+            </a>
+        </div>
+    {% endif %}
 
     <input id="search-bar" type="text" name="search-query" value=""
            placeholder="Search patients by name or email">
@@ -60,14 +57,5 @@
         Save failed, please try again
     </div>
 
-    <div id="save-guard" class="display-none center-screen">
-        <div id="loading-screen" class="display-none center-screen">
-            <i class="fa fa-spinner fa-pulse fa-3x loading-screen-content"></i>
-        <span class="loading-screen-content">
-          Updating patient list<br>
-          Please wait...
-        </span>
-        </div>
-    </div>
 
 {% endblock %}

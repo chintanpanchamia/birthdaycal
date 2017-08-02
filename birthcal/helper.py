@@ -4,7 +4,7 @@ import requests
 
 from django.contrib.auth.models import User
 
-from birthdaycal.settings import CLIENT
+from birthdaycal.auth_data import CLIENT
 from models import Doctor, Patient
 
 

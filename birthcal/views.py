@@ -7,7 +7,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from django.db.models import Q
 
-from birthdaycal.settings import CLIENT #client data
+from birthdaycal.auth_data import CLIENT #client data
 from models import Doctor, Patient
 from forms import EmailForm, PatientForm
 from helper import get_drchrono_user

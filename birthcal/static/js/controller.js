@@ -1,5 +1,5 @@
 function listenForPatientUpdate() {
-  $('#update-list-button').click(displayLoadingScreen);
+
   $('#patient-list').on('change', '.send-checkbox', markUserForUpdate);
   $('#save-changes-button').click(getMarkedPatients);
 
@@ -12,11 +12,6 @@ function listenForPatientUpdate() {
   });
 }
 
-function displayLoadingScreen() {
-  $('#save-guard').removeClass('display-none');
-  $('#save-guard').addClass('loading-guard');
-  $('#loading-screen').removeClass('display-none');
-}
 
 function markUserForUpdate(e) {
   var checkbox = e.currentTarget;

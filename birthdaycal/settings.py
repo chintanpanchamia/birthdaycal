@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from auth_data import SECRET
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'f7i3u#+(wj8w1*nh#2_9hsu+!xcj#l20z^f1)(=5l!x_isq9m$'
+SECRET_KEY = SECRET
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -71,15 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'birthdaycal.wsgi.application'
 
-EMAIL_USE_TLS = True
 
-EMAIL_HOST = 'smtp.gmail.com'
-
-EMAIL_HOST_USER = 'destructor.animos@gmail.com'
-
-EMAIL_HOST_PASSWORD = 'DrJDDrElliot365'
-
-EMAIL_PORT = 587
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -110,8 +103,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-CLIENT = {
-    'client_id':'SadKgzQiRjwed4gf4txoEZF9GNMMNJwkOUolRvRw',
-    'client_secret':'d8DF5NiipBR7VTGVvRdET46tv2xbqjbte7fboX2KzBtGJy4xJ3bXNcmkSOF2rfA1iVaSF3RCzQYDJfVZLLJELWRpVKPCk4OmIX6Pto8xdQ1bt3phwAFq0QtpMWrWGieO',
-    'redirect_url':'http://127.0.0.1:8000/oauth/'
-}
