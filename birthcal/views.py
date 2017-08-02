@@ -27,7 +27,7 @@ def oauth_view(request):
     new drchrono data.
     """
     if 'error' in request.GET:
-        return redirect('drchrono_birthdays:login_error')
+        return redirect('birthcal:login_error')
 
     user = get_drchrono_user(request.GET)
     auth_user = authenticate(
@@ -35,28 +35,28 @@ def oauth_view(request):
         password=user.doctor.set_random_password()
     )
     login(request, auth_user)
-    return redirect('drchrono_birthdays:index_view')
+    return redirect('birthcal:index_view')
 
 
 # def guest_view(request):
 #     if 'error' in request.GET:
-#         return redirect('drchrono_birthdays:login_error')
+#         return redirect('birthcal:login_error')
 #
 #     auth_user = authenticate(username="guest", password="guestpassword")
 #     login(request, auth_user)
-#     return redirect('drchrono_birthdays:index_view')
+#     return redirect('birthcal:index_view')
 
 
 def login_error_view(request):
     """
     If drchrono authentication fails
     """
-    return render(request, 'sessions/error.html')
+    return render(request, 'generic/error.html')
 
 
 def logout_view(request):
     logout(request)
-    return redirect('drchrono_birthdays:index_view')
+    return redirect('birthcal:index_view')
 
 
 def index_view(request):
@@ -86,7 +86,7 @@ def edit_email_view(request):
         'email_body': doctor.email_body.format(doctor.last_name),
     }
 
-    return render(request, 'doctors/email.html', context)
+    return render(request, 'email.html', context)
 
 
 def patient_search_view(request):
@@ -99,7 +99,7 @@ def patient_search_view(request):
             Q(email__contains=query_string)
         )
 
-    return render(request, 'patients/patient_list.html', {
+    return render(request, 'patients_list.html', {
         'patients': patients
     })
 

@@ -110,12 +110,12 @@ def save_patient(patient_data, user):
         first_name=patient_data['first_name'],
         last_name=patient_data['last_name'],
         email=patient_data['email'],
-        birthday=patient_data['date_of_birth'],
+        dob=patient_data['date_of_birth'],
         doctor=user.doctor
     )
     if Patient.objects.filter(pk=patient_data['id']).exists():
         patient.save(
-            update_fields=['first_name', 'last_name', 'email', 'birthday']
+            update_fields=['first_name', 'last_name', 'email', 'dob']
         )
     else:
         patient.save()

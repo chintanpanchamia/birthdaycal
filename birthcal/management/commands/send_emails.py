@@ -23,16 +23,16 @@ class Command(BaseCommand):
         def generate_email(doctor, patient):
             subject = doctor.email_subject.format(doctor.last_name)
             subject = subject.replace(
-                '[first name]', patient.first_name
+                '[fn]', patient.first_name
             ).replace(
-                '[last name]', patient.last_name
+                '[ln]', patient.last_name
             )
 
             body = doctor.email_body.format(doctor.last_name)
             body = body.replace(
-                '[first name]', patient.first_name
+                '[fn]', patient.first_name
             ).replace(
-                '[last name]', patient.last_name
+                '[ln]', patient.last_name
             )
 
             message = (subject, body, EMAIL_HOST_USER, [patient.email])

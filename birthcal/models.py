@@ -16,7 +16,7 @@ class Doctor(models.Model):
 
     def set_random_password(self):
         user = self.user
-        chars = string.letters + string.digitss + string.punctuation
+        chars = string.letters + string.digits + string.punctuation
         pswd = ''.join((random.choice(chars) for x in range(20)))
         user.set_password(pswd)
         user.save()
