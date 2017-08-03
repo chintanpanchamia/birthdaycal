@@ -6,7 +6,7 @@ from django.core.mail import send_mass_mail
 
 import datetime
 
-from birthdaycal.settings import EMAIL_HOST_USER
+from birthdaycal.auth_data import EMAIL_HOST_USER
 
 
 class Command(BaseCommand):

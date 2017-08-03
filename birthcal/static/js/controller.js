@@ -149,25 +149,6 @@ function showSaveResult(saveStatus) {
   }, 3000);
 }
 
-function listenForPatientSearch() {
-  $('#search-bar').keyup(getResults);
-}
-
-function getResults(e) {
-  var csrftoken = getCookie('csrftoken');
-  $.ajax({
-    type: 'GET',
-    url: '/patient-search/',
-    data: {
-      'queryString': e.currentTarget.value
-    },
-    beforeSend: function(xhr) {
-      xhr.setRequestHeader("X-CSRFToken", csrftoken);
-    },
-    dataType: 'html',
-    success: updateInput
-  });
-}
 
 function updateInput(patientsTemplate) {
   $('#patient-list').html(patientsTemplate);
@@ -194,5 +175,4 @@ function getCookie(name) {
 (function() {
   listenForPatientUpdate();
   listenForEmailUpdate();
-  listenForPatientSearch();
 })();

@@ -8,27 +8,16 @@
         </div>
     </div>
 
-    <button id="email-all-button" type="button" name="button">
-        <i class="fa fa-paper-plane"></i> Add all patients
-    </button>
-    <button id="email-none-button" type="button" name="button">
-        <i class="fa fa-times"></i> Remove all patients
-    </button>
 
-    <div id="patient-table" >
-        <i class="fa fa-users"></i> PATIENTS
+    <div class="search-panel">
+        {% if not is_guest %}
+            <div class="patient-update">
+                <a id="update-list-button" href="https://drchrono.com/o/authorize/?redirect_uri={{redirect_url}}&response_type=code&client_id={{client_id}}&scope=patients:read%20user:read">
+                    Update Patient List
+                </a>
+            </div>
+        {% endif %}
     </div>
-
-    {% if not is_guest %}
-        <div class="patient-update">
-            <a id="update-list-button" href="https://drchrono.com/o/authorize/?redirect_uri={{redirect_url}}&response_type=code&client_id={{client_id}}&scope=patients:read%20user:read">
-                Update Patient List
-            </a>
-        </div>
-    {% endif %}
-
-    <input id="search-bar" type="text" name="search-query" value=""
-           placeholder="Search patients by name or email">
 
     <div id="patient-table-head" class="table-content ">
 
@@ -43,11 +32,23 @@
         {% include 'patients_list.html' %}
     </div>
 
-    <button id="save-changes-button" class="save-button"
+
+
+    <div class="button-panel">
+        <button id="email-all-button" type="button" name="button">
+            <i class="fa fa-paper-plane"></i> Add all patients
+        </button>
+        <button id="email-none-button" type="button" name="button">
+            <i class="fa fa-times"></i> Remove all patients
+        </button>
+        <button id="save-changes-button" class="save-button"
             type="button" name="button" disabled>
 
-        <i class="fa fa-check-square-o"></i> Save Changes
-    </button>
+            <i class="fa fa-check-square-o"></i> Save Changes
+        </button>
+
+    </div>
+
 
     <div id="save-success" class="save-result ">
         Save successful
