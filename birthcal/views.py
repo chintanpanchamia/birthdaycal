@@ -5,7 +5,6 @@ from django.utils.http import urlquote
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
-from django.db.models import Q
 
 from birthdaycal.auth_data import CLIENT #client data
 from models import Doctor, Patient
@@ -23,8 +22,7 @@ def login_view(request):
 
 def oauth_view(request):
     """
-    Redirect destination for drchrono. Handles user login and updating db with
-    new drchrono data.
+    Redirect here. Handles user login and updating db with new drchrono data.
     """
     if 'error' in request.GET:
         return redirect('birthcal:login_error')
@@ -36,15 +34,6 @@ def oauth_view(request):
     )
     login(request, auth_user)
     return redirect('birthcal:index_view')
-
-
-# def guest_view(request):
-#     if 'error' in request.GET:
-#         return redirect('birthcal:login_error')
-#
-#     auth_user = authenticate(username="guest", password="guestpassword")
-#     login(request, auth_user)
-#     return redirect('birthcal:index_view')
 
 
 def login_error_view(request):
@@ -87,21 +76,6 @@ def edit_email_view(request):
     }
 
     return render(request, 'email.html', context)
-
-
-def patient_search_view(request):
-    patients = request.user.doctor.patient_set.all()
-    if request.method == 'GET' and request.GET['queryString']:
-        query_string = request.GET['queryString']
-        patients = patients.filter(
-            Q(last_name__contains=query_string) |
-            Q(first_name__contains=query_string) |
-            Q(email__contains=query_string)
-        )
-
-    return render(request, 'patients_list.html', {
-        'patients': patients
-    })
 
 
 class DoctorView(generic.DetailView):

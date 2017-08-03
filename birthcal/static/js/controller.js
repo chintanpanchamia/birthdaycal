@@ -1,3 +1,8 @@
+(function() {
+  listenForPatientUpdate();
+  listenForEmailUpdate();
+})();
+
 function listenForPatientUpdate() {
 
   $('#patient-list').on('change', '.send-checkbox', markUserForUpdate);
@@ -56,7 +61,7 @@ function saveChanges($patientsList, boolean) {
   sendRequests(putRequests);
 }
 
-// Sends all ajax requests at once and runs callback after all are complete
+
 function sendRequests(requests) {
   $.when.apply($, requests).then(
     //Success
@@ -71,7 +76,7 @@ function sendRequests(requests) {
     });
 }
 
-// Check whether or not a marked patient should be sent an email after update
+
 function isChecked(checkbox) {
   if (checkbox.checked) {
     return true;
@@ -80,7 +85,7 @@ function isChecked(checkbox) {
   return false;
 }
 
-// Updates patient DOM element to reflect changes from update
+
 function updatePatientCheckbox(checkbox, isCheck) {
   if (isCheck) {
     checkbox.checked = true;
@@ -101,7 +106,7 @@ function buildPutRequest(patient, bool) {
   });
 }
 
-// Add listener for doctor email updates
+
 function listenForEmailUpdate() {
   $('#save-email-button').click(saveEmail);
 }
@@ -146,13 +151,9 @@ function showSaveResult(saveStatus) {
   saveStatus.addClass('save-result-fade');
   setTimeout(function() {
     saveStatus.removeClass('save-result-fade');
-  }, 3000);
+  }, 1000);
 }
 
-
-function updateInput(patientsTemplate) {
-  $('#patient-list').html(patientsTemplate);
-}
 
 // From Django docs https://docs.djangoproject.com/en/1.9/ref/csrf/
 function getCookie(name) {
@@ -172,7 +173,3 @@ function getCookie(name) {
     return cookieValue;
 }
 
-(function() {
-  listenForPatientUpdate();
-  listenForEmailUpdate();
-})();
