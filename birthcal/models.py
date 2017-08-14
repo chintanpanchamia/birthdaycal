@@ -6,13 +6,14 @@ import random
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Doctor(models.Model):
     user = models.OneToOneField(User, primary_key=True)
     first_name = models.CharField(max_length=128)
     last_name = models.CharField(max_length=128)
 
     email_subject = models.CharField(max_length=512, default="Many happy returns!")
-    email_body = models.TextField(default=("Dear [fn] [ln], \n\nMany happy returns!\n\nWarm regards,\nDr. {0}"))
+    email_body = models.TextField(default="Dear [fn] [ln], \n\nMany happy returns!\n\nWarm regards,\nDr. {0}")
 
     def set_random_password(self):
         user = self.user
